@@ -37,4 +37,39 @@ public class Titular {
 
     // Tu código aquí
 
-}
+        private String nombre;
+        private String documento;
+        private String celular;
+
+        public Titular(String nombre, String documento) {
+            if (nombre == null || nombre.isBlank()) {
+                throw new IllegalArgumentException("El nombre es obligatorio");
+            }
+            if (documento == null || documento.isBlank()) {
+                throw new IllegalArgumentException("El documento es obligatorio");
+            }
+            this.nombre = nombre;
+            this.documento = documento;
+        }
+
+        public String getNombre() {
+            return nombre;
+        }
+
+        public String getDocumento() {
+            return documento;
+        }
+
+        public String getCelular() {
+            return celular;
+        }
+
+        public void setCelular(String celular) {
+            if (celular == null || celular.length() != 10 || !celular.startsWith("3")) {
+                throw new IllegalArgumentException("El celular debe tener 10 dígitos y empezar por 3");
+            }
+            this.celular = celular;
+        }
+    }
+
+
